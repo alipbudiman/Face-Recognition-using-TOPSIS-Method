@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282c35;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            color: #61dafb;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #383e4a;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .image-preview {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            background-color: #4d5661;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .image-preview label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #61dafb;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #61dafb;
+            border-radius: 4px;
+        }
+
+        #process-btn {
+            background-color: #61dafb;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #process-btn:disabled {
+            background-color: #4d5661;
+            color: #999;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Comparison</h1>
+    <div class="form-container">
+        <form id="upload-form" method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="image-container">
+                <div class="image-preview" id="preview1">
+                    <label for="image1">Gambar A [Pembanding]</label>
+                    <input type="file" name="image1" id="image1" accept="image/*" onchange="previewImage(1)">
+                </div>
+                <div class="image-preview" id="preview2">
+                    <label for="image2">Gambar B [Ingin Dibandingkan]</label>
+                    <input type="file" name="image2" id="image2" accept="image/*" onchange="previewImage(2)">
+                </div>
+                <div class="image-preview" id="preview3">
+                    <label for="image3">Gambar C [Ingin Dibandingkan]</label>
+                    <input type="file" name="image3" id="image3" accept="image/*" onchange="previewImage(3)">
+                </div>
+                <div class="image-preview" id="preview4">
+                    <label for="image4">Gambar D [Ingin Dibandingkan]</label>
+                    <input type="file" name="image4" id="image4" accept="image/*" onchange="previewImage(4)">
+                </div>
+            </div>
+            <input id="process-btn" type="submit" value="Upload">
+        </form>
+    </div>
+
+    <script>
+        function previewImage(num) {
+            var input = document.getElementById('image' + num);
+            var preview = document.getElementById('preview' + num);
+
+            //while (preview.firstChild) {
+            //    preview.removeChild(preview.firstChild);
+            //}
+
+            var label = document.createElement('label');
+            //label.textContent = (num === 1) ? 'Gambar Pembanding' : 'Gambar Ingin Dibandingkan';
+            preview.appendChild(label);
+
+            var img = document.createElement('img');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+
+            preview.appendChild(img);
+        }
+
+        function checkUploadStatus() {
+            var processBtn = document.getElementById('process-btn');
+            var fileInputs = document.querySelectorAll('input[type="file"]');
+
+            processBtn.disabled = true;
+
+            fileInputs.forEach(function(input) {
+                if (input.files.length > 0) {
+                    processBtn.disabled = false;
+                }
+            });
+        }
+        
+    </script>
+</body>
+</html>

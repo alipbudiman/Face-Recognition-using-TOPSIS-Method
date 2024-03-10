@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze</title>
+
+    <style>
+        body {
+            background-color: #111;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+        }
+
+        #console {
+            padding: 20px;
+            overflow-y: scroll;
+            height: 300px;
+            border: 1px solid #00ff00;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 80%%;
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .container img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr {
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="console"></div>
+    <div class="here-result">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+
+        const currentUrl = window.location.href;
+        const parsedUrl = new URL(currentUrl);
+        const queryParams = new URLSearchParams(parsedUrl.search);
+        const uuid = queryParams.get("uuid");
+
+        const socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket.emit('message_from_server', uuid);
+        socket.on('message_from_server', function(message) {
+            const consoleDiv = document.getElementById('console');
+            consoleDiv.innerHTML += '<p>' + message + '</p>';
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        });
+
+        socket.on('redirect_client', function(data) {
+            window.location.replace(data)
+        });
+
+        socket.on('image_a', function(data) {
+            let htmlCode = `
+            <div class="container">
+                <img src="uploads/${imageInfo.image_path}" style="width: 150px;height: 150px;">
+                <p> ${rank} [${imageInfo.image_id}] </p>
+            </div>
+            const resultDiv = document.querySelector('.here-result');
+            resultDiv.innerHTML = htmlCode;
+            `
+        })
+
+        socket.on('client_rank', function(myObject) {
+            let htmlCode = ""
+            Object.keys(myObject).forEach(function(rank) {
+                var imageInfo = myObject[rank];
+                htmlCode += `
+                <div class="container">
+                    <img src="uploads/${imageInfo.image_path}" style="width: 150px;height: 150px;">
+                    <p> ${rank} [${imageInfo.image_id}] </p>
+                    <table>
+                        <tr>
+                            <td>Minimum Square Error</td>
+                            <td>${imageInfo.mse}</td>
+                        </tr>
+                        <tr>
+                            <td>Average Standar Deviation 1</td>
+                            <td>${imageInfo.avg_standart_deviasi_1}</td>
+                        </tr>
+                        <tr>
+                            <td>Average Standar Deviation 2</td>
+                            <td>${imageInfo.avg_standart_deviasi_2}</td>
+                        </tr>
+                        <tr>
+                            <td>Average Face Distance</td>
+                            <td>${imageInfo.face_distances}</td>
+                        </tr>
+                        <tr>
+                            <td>Reference Point (TOPSIS)</td>
+                            <td>${imageInfo.refrence_point}</td>
+                        </tr>
+                        <tr>
+                            <td>Face Recognition Detect (Is Same Person?)</td>
+                            <td>${imageInfo.ml_detection_is_same_person}</td>
+                        </tr>
+                    </table>
+                </div>
+                    `
+            });
+            const resultDiv = document.querySelector('.here-result');
+            resultDiv.innerHTML = htmlCode;
+            
+        });
+    </script>
+</body>
+</html>

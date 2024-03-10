@@ -1,0 +1,6 @@
+{
+    "use_firebase_database":false,
+    "firebase_database_path":"config/spk-alif-firebase-adminsdk-kyjwn-a5042873f7.json",
+    "firebase_db_uri":"https://myrealtimedatabase.asia-southeast1.firebasedatabase.app/",
+    "firebase_delete_image_time":120
+}
