@@ -8,7 +8,7 @@
 
 [TOPSIS Method, which stands for **Technique for Order of Preference by Similarity to Ideal Solution**, is a decision analysis technique used to select the best alternative from a set of options based on several relevant criteria]((https://dosenit.com/kuliah-it/metode-topsis)). [This method was developed by Hwang and Yoon in 1981 and is often used in the context of multi-criteria decision making](https://nictodev.com/mengenal-metode-topsis-adalah/).
 
-The basic principle of the TOPSIS method is to compare each alternative with the positive ideal solution (best alternative) and the negative ideal solution (worst alternative) in the multi-criteria solution space. [The goal is to determine the alternative that is closest to the positive ideal solution and farthest from the negative ideal solution]((https://dosenit.com/kuliah-it/metode-topsis)).
+The basic principle of the TOPSIS method is to compare each alternative with the positive ideal solution (best alternative) and the negative ideal solution (worst alternative) in the multi-criteria solution space. [The goal is to determine the alternative that is closest to the positive ideal solution and farthest from the negative ideal solution](https://dosenit.com/kuliah-it/metode-topsis).
 
 The steps involved in the TOPSIS method include:
 1. Identifying the criteria and alternatives to be evaluated.
@@ -43,6 +43,8 @@ By utilizing [Flask](https://pypi.org/project/Flask/), [Python Face-recognition]
     In the Python face_recognition library, the face_distance function is used to calculate the Euclidean distance between known face encodings and unknown face encodings. This distance indicates how similar the faces are. Lower values indicate that the faces are more similar, while higher values indicate that they are less similar.
 
 ## PREVIEW
+
+[![PREVIEW ON YOUTUBE](https://img.youtube.com/vi/6_fxC9u8tMU/0.jpg)](https://www.youtube.com/watch?v=6_fxC9u8tMU)
 
 ## RUNNING
 

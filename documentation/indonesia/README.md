@@ -42,7 +42,7 @@ Dengan menggunakan [Flask](https://pypi.org/project/Flask/), [Python Face-recogn
 
 ## PREVIEW
 
-
+[![PREVIEW ON YOUTUBE](https://img.youtube.com/vi/6_fxC9u8tMU/0.jpg)](https://www.youtube.com/watch?v=6_fxC9u8tMU)
 
 ## MENJALANKAN
 
@@ -89,8 +89,8 @@ contoh config di bawah ini:
 Ya begitulah, ini untuk tugas mata kulaih SPK, jadi seadanya aja ya, karena TA nya dikejar deadline wkwk
 
 Thanks to:
-    - Bpk. Weri Sirait M.kom (Dosen Matakuliah SPK)
-    - Fajar Jero (Yg nemenin ngerjain TA nya wkwkw)
 
+- Bpk. Weri Sirait M.kom (Dosen Matakuliah SPK)
+- Fajar Jero (Yg nemenin ngerjain TA nya wkwkw)
 
-
+Salam Hangat
