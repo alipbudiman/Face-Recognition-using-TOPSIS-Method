@@ -88,7 +88,8 @@ Example configuration below:
 Well, that's it. This is for the Decision Support System course assignment, so it's just as it is, because the Thesis Advisor is chasing the deadline haha.
 
 Thanks to:
-    - Mr. Weri Sirait M.kom (Lecturer of the Decision Support System course)
-    - Fajar Jero (Who accompanied me in working on the Thesis haha)
+
+- Mr. Weri Sirait M.kom (Lecturer of the Decision Support System course)
+- Fajar Jero (Who accompanied me in working on the Thesis haha)
 
 Best Regards.
