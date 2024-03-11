@@ -4,7 +4,7 @@
 
 [Metode TOPSIS, yang merupakan singkatan dari **Technique for Order of Preference by Similarity to Ideal Solution**, adalah teknik analisis keputusan yang digunakan untuk memilih alternatif terbaik dari sejumlah pilihan yang ada berdasarkan beberapa kriteria yang relevan]((https://dosenit.com/kuliah-it/metode-topsis)). [Metode ini dikembangkan oleh Hwang dan Yoon pada tahun 1981 dan sering digunakan dalam konteks pengambilan keputusan multi-kriteria](https://nictodev.com/mengenal-metode-topsis-adalah/).
 
-Prinsip dasar dari metode TOPSIS adalah membandingkan setiap alternatif dengan solusi ideal positif (alternatif terbaik) dan solusi ideal negatif (alternatif terburuk) dalam ruang solusi multi-kriteria. [Tujuannya adalah untuk menentukan alternatif yang paling mendekati solusi ideal positif dan paling jauh dari solusi ideal negatif]((https://dosenit.com/kuliah-it/metode-topsis)).
+Prinsip dasar dari metode TOPSIS adalah membandingkan setiap alternatif dengan solusi ideal positif (alternatif terbaik) dan solusi ideal negatif (alternatif terburuk) dalam ruang solusi multi-kriteria. [Tujuannya adalah untuk menentukan alternatif yang paling mendekati solusi ideal positif dan paling jauh dari solusi ideal negatif](https://dosenit.com/kuliah-it/metode-topsis).
 
 Langkah-langkah dalam metode TOPSIS meliputi:
 1. Menentukan kriteria dan alternatif yang akan dievaluasi.
